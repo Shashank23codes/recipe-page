@@ -1,0 +1,242 @@
+/* Add font declarations at the top */
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+}
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Stone-100: hsl(30, 54%, 90%);
+  --Stone-150: hsl(30, 18%, 87%);
+  --Stone-600: hsl(30, 10%, 34%);
+  --Stone-900: hsl(24, 5%, 18%);
+  --Brown-800: hsl(14, 45%, 36%);
+  --Rose-800: hsl(332, 51%, 32%);
+  --Rose-50: hsl(330, 100%, 98%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--Stone-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Outfit", sans-serif;
+}
+main {
+  background-color: var(--White);
+  width: 52%;
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+h1 {
+  font-family: "Young Serif", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--Stone-900);
+  margin-bottom: 1rem;
+}
+.description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--Stone-600);
+  margin-bottom: 1rem;
+}
+.Preparation {
+  background-color: var(--Rose-50);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  color: var(--Stone-600);
+}
+.Preparation h2 {
+  font-size: 1.5rem;
+  color: var(--Stone-900);
+  margin-bottom: 1rem;
+}
+.Preparation ul {
+  padding-left: 4rem;
+  line-height: 1rem;
+  list-style: none;
+  display: inline-block;
+}
+.Preparation ul li {
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 1rem;
+}
+.Preparation ul li::before {
+  content: "•";
+  color: var(--Stone-900);
+  font-weight: 700;
+  position: absolute;
+  left: -2rem;
+  font-size: 1.5rem;
+}
+.Preparation ul li strong {
+  font-weight: 700;
+}
+
+.Ingredients h2 {
+  font-size: 1.5rem;
+  color: var(--Brown-800);
+  margin-bottom: 1rem;
+  font-family: "Young Serif", sans-serif;
+  font-weight: 700;
+}
+.Ingredients ul {
+  padding-left: 2rem;
+  line-height: 2rem;
+  display: inline-block;
+  font-size: 1rem;
+}
+.Ingredients ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  list-style-type: square;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--Stone-150);
+  width: 100%;
+  margin: 2rem 0;
+}
+.Instructions {
+  border-radius: 1rem;
+  color: var(--Stone-600);
+}
+.Instructions h2 {
+  font-size: 1.5rem;
+  color: var(--Brown-800);
+  margin-bottom: 1rem;
+  font-family: "Young Serif", sans-serif;
+  font-weight: 700;
+}
+.Instructions ol {
+  padding-left: 2rem;
+  line-height: 2rem;
+  display: inline-block;
+  font-size: 1rem;
+}
+.Instructions ol li {
+  position: relative;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+  line-height: 2rem;
+  font-size: 1.1rem;
+}
+.Instructions ol li::marker {
+  font-weight: 700;
+}
+.Nutrition h2 {
+  font-family: "Young Serif", sans-serif;
+  color: var(--Brown-800);
+  font-weight: 700;
+}
+.Nutrition p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--Stone-600);
+  margin: 1rem 0;
+}
+.Nutrition table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  color: var(--Stone-600);
+}
+.Nutrition tr td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--Stone-150);
+  text-align: left;
+  font-size: 1rem;
+  padding-left: 5rem;
+}
+.Nutrition tr:last-child td {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  main {
+    width: 100%;
+    padding: 2rem;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .Preparation {
+    margin: 2rem 0;
+    padding: 2rem;
+  }
+
+  .Ingredients {
+    margin: 2rem 0;
+  }
+
+  .Instructions {
+    margin: 2rem 0;
+  }
+
+  .Instructions ol li {
+    font-size: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .Nutrition tr td {
+    padding: 1rem;
+    padding-left: 2rem;
+  }
+
+  img {
+    margin: 0 -2rem;
+    width: calc(100% + 4rem);
+    border-radius: 0;
+    margin-top: -2rem;
+  }
+}
