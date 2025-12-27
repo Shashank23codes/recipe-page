@@ -1,242 +1,908 @@
-/* Add font declarations at the top */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+
 @font-face {
   font-family: "Young Serif";
-  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
-    format("truetype");
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Outfit";
-  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
-    format("truetype-variations");
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("truetype-variations");
   font-weight: 100 900;
+  font-display: swap;
 }
+
 :root {
-  --White: hsl(0, 0%, 100%);
-  --Stone-100: hsl(30, 54%, 90%);
-  --Stone-150: hsl(30, 18%, 87%);
-  --Stone-600: hsl(30, 10%, 34%);
-  --Stone-900: hsl(24, 5%, 18%);
-  --Brown-800: hsl(14, 45%, 36%);
-  --Rose-800: hsl(332, 51%, 32%);
-  --Rose-50: hsl(330, 100%, 98%);
+  /* Brand Colors */
+  --primary: hsl(14, 45%, 36%);
+  /* Brown-800 */
+  --primary-light: hsl(14, 45%, 96%);
+  --accent: hsl(332, 51%, 32%);
+  /* Rose-800 */
+  --accent-light: hsl(330, 100%, 98%);
+  /* Rose-50 */
+
+  /* Neutrals */
+  --dark: hsl(24, 5%, 18%);
+  /* Stone-900 */
+  --text: hsl(30, 10%, 34%);
+  /* Stone-600 */
+  --bg-body: hsl(30, 54%, 98%);
+  /* Lighter Stone */
+  --bg-surface: hsl(0, 0%, 100%);
+  --border: hsl(30, 18%, 87%);
+
+  /* Effects */
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+
+  --transition: all 0.3s ease;
 }
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: var(--Stone-100);
+  font-family: "Outfit", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Young Serif", serif;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+     2. REUSABLE COMPONENTS
+     ========================================= */
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 14px rgba(133, 70, 50, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--dark);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  background-color: var(--dark);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.btn-sm:hover {
+  background-color: var(--primary);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+     3. NAVBAR
+     ========================================= */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo .dot {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark);
+  transition: var(--transition);
+}
+
+/* =========================================
+     4. HERO SECTION
+     ========================================= */
+
+.hero {
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.hero-image-wrapper {
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(2deg);
+  transition: var(--transition);
+}
+
+.hero-img:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.floating-card {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.emoji {
+  font-size: 2rem;
+  background: var(--bg-body);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.floating-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.floating-text span {
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================
+     5. STATS BAR
+     ========================================= */
+
+.stats-bar {
+  background: var(--bg-surface);
+  margin: 2rem auto 4rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.stats-grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  font-family: "Outfit", sans-serif;
-}
-main {
-  background-color: var(--White);
-  width: 52%;
-  margin: 1rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-img {
-  width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-}
-h1 {
-  font-family: "Young Serif", sans-serif;
-  font-size: 2.5rem;
-  line-height: 1.2;
-  color: var(--Stone-900);
-  margin-bottom: 1rem;
-}
-.description {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  color: var(--Stone-600);
-  margin-bottom: 1rem;
-}
-.Preparation {
-  background-color: var(--Rose-50);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  color: var(--Stone-600);
-}
-.Preparation h2 {
-  font-size: 1.5rem;
-  color: var(--Stone-900);
-  margin-bottom: 1rem;
-}
-.Preparation ul {
-  padding-left: 4rem;
-  line-height: 1rem;
-  list-style: none;
-  display: inline-block;
-}
-.Preparation ul li {
-  margin: 0.5rem 0;
-  position: relative;
-  padding-left: 1rem;
-}
-.Preparation ul li::before {
-  content: "•";
-  color: var(--Stone-900);
-  font-weight: 700;
-  position: absolute;
-  left: -2rem;
-  font-size: 1.5rem;
-}
-.Preparation ul li strong {
-  font-weight: 700;
+  gap: 3rem;
 }
 
-.Ingredients h2 {
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+.stat-value {
+  font-family: "Young Serif", serif;
   font-size: 1.5rem;
-  color: var(--Brown-800);
+  color: var(--primary);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* =========================================
+     6. MAIN CONTENT
+     ========================================= */
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+/* Sidebar */
+.ingredients-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 6rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.ingredient-list li {
   margin-bottom: 1rem;
-  font-family: "Young Serif", sans-serif;
-  font-weight: 700;
 }
-.Ingredients ul {
-  padding-left: 2rem;
-  line-height: 2rem;
-  display: inline-block;
+
+.separator {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+/* Checkbox styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
   font-size: 1rem;
+  user-select: none;
+  transition: color 0.2s;
 }
-.Ingredients ul li {
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-right: 12px;
   position: relative;
-  padding-left: 1.5rem;
-  list-style-type: square;
+  transition: var(--transition);
 }
-hr {
-  border: none;
-  border-top: 1px solid var(--Stone-150);
+
+.checkbox-container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked~.checkmark {
+  background-color: var(--primary);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked~.checkmark+span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Instructions */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.section-header .line {
   width: 100%;
-  margin: 2rem 0;
+  height: 1px;
+  background: var(--border);
 }
-.Instructions {
-  border-radius: 1rem;
-  color: var(--Stone-600);
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
-.Instructions h2 {
-  font-size: 1.5rem;
-  color: var(--Brown-800);
-  margin-bottom: 1rem;
-  font-family: "Young Serif", sans-serif;
-  font-weight: 700;
+
+.step-item {
+  display: flex;
+  gap: 1.5rem;
 }
-.Instructions ol {
-  padding-left: 2rem;
-  line-height: 2rem;
-  display: inline-block;
-  font-size: 1rem;
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  font-family: "Young Serif", serif;
 }
-.Instructions ol li {
-  position: relative;
-  padding-left: 1.5rem;
-  list-style-type: decimal;
-  line-height: 2rem;
-  font-size: 1.1rem;
+
+.step-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
 }
-.Instructions ol li::marker {
-  font-weight: 700;
+
+/* Nutrition Grid */
+.nutrition-section {
+  margin-top: 4rem;
+  background: var(--accent-light);
+  padding: 3rem;
+  border-radius: var(--radius-md);
 }
-.Nutrition h2 {
-  font-family: "Young Serif", sans-serif;
-  color: var(--Brown-800);
-  font-weight: 700;
+
+.nutrition-section h2 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
 }
-.Nutrition p {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  color: var(--Stone-600);
-  margin: 1rem 0;
-}
-.Nutrition table {
-  width: 100%;
-  border-collapse: collapse;
+
+.nutrition-section p {
   margin-bottom: 2rem;
-  color: var(--Stone-600);
+  font-size: 0.9rem;
 }
-.Nutrition tr td {
-  padding: 1rem;
-  border-bottom: 1px solid var(--Stone-150);
-  text-align: left;
-  font-size: 1rem;
-  padding-left: 5rem;
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
 }
-.Nutrition tr:last-child td {
-  border-bottom: none;
-  margin-bottom: 0;
+
+.nutrition-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.attribution {
-  font-size: 11px;
+
+.nutri-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  font-family: "Young Serif", serif;
+}
+
+.nutri-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* =========================================
+     7. NEWSLETTER & FOOTER
+     ========================================= */
+
+.newsletter-section {
+  background: var(--dark);
+  color: white;
+  padding: 4rem 0;
   text-align: center;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+.newsletter-content h2,
+.newsletter-content p {
+  color: white;
+  /* Override */
+}
+
+.newsletter-content h2 {
+  margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  width: 300px;
+  max-width: 100%;
+  outline: none;
+}
+
+footer {
+  background: var(--bg-surface);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.attribution {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 1rem;
+}
+
+/* =========================================
+     8. RESPONSIVE DESIGN
+     ========================================= */
+
+@media screen and (max-width: 900px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sticky-wrapper {
+    position: static;
+  }
+
+  .instruction-list {
+    padding-left: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .floating-card {
+    left: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav-links {
+    display: none;
+    /* simple hide for now, or implement JS toggle */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-grid {
+    gap: 1rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stats-bar {
+    border: none;
+    background: transparent;
+    margin-top: 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Stack vertically if needed, but 3 cols fit mobile usually */
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .nutrition-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   9. NEW PAGES STYLES
+   ========================================= */
+
+/* Page Header (Compact Hero) */
+.page-header {
+  background-color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.page-header p {
+  color: var(--text);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid Layouts */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Recipe Card */
+.recipe-card {
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.recipe-thumb {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.recipe-card:hover .recipe-thumb img {
+  transform: scale(1.05);
+}
+
+.recipe-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.recipe-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.recipe-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  font-family: "Young Serif", serif;
+  line-height: 1.2;
+}
+
+.recipe-desc {
+  font-size: 0.9rem;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recipe-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
+}
+
+/* Tip Card */
+.tip-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.tip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.tip-card h3 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+}
+
+/* About Section */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+}
+
+.about-img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: rotate(3deg);
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  
-  main {
-    width: 100%;
-    padding: 2rem;
-    margin: 0;
-    border-radius: 0;
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  h1 {
-    font-size: 2.25rem;
-    margin: 1.5rem 0;
-  }
-
-  .description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .Preparation {
-    margin: 2rem 0;
-    padding: 2rem;
-  }
-
-  .Ingredients {
-    margin: 2rem 0;
-  }
-
-  .Instructions {
-    margin: 2rem 0;
-  }
-
-  .Instructions ol li {
-    font-size: 1rem;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .Nutrition tr td {
-    padding: 1rem;
-    padding-left: 2rem;
-  }
-
-  img {
-    margin: 0 -2rem;
-    width: calc(100% + 4rem);
-    border-radius: 0;
-    margin-top: -2rem;
+  .about-img {
+    transform: rotate(0);
+    margin-top: 2rem;
+    order: -1;
+    /* Image on top on mobile */
   }
 }

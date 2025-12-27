@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="style.css" />
+    <title>OmNom | Recipes</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">OmNom<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="recipes.html" class="active">Recipes</a></li>
+                <li><a href="tips.html">Tips</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#newsletter" class="btn-sm">Subscribe</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Favorites</h1>
+            <p>Discover a collection of delicious, simple, and nutritious recipes curated just for you.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="card-grid">
+
+            <!-- Card 1 -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <img src="./assets/images/image-omelette.jpeg" alt="Simple Omelette">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>20 mins</span>
+                        <span>•</span>
+                        <span>Breakfast</span>
+                    </div>
+                    <h2 class="recipe-title">Classic Cheese Omelette</h2>
+                    <p class="recipe-desc">A quick and easy classic that never fails. Perfect for a protein-packed
+                        breakfast.</p>
+                    <a href="index.html" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+            <!-- Card 2 (Mock) -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <!-- Placeholder using color or text if image missing, or reuse same image for demo -->
+                    <img src="./assets/images/image-omelette.jpeg" style="filter: hue-rotate(40deg);"
+                        alt="Avocado Toast">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>10 mins</span>
+                        <span>•</span>
+                        <span>Snack</span>
+                    </div>
+                    <h2 class="recipe-title">Creamy Avocado Toast</h2>
+                    <p class="recipe-desc">Ideally toasted sourdough topped with seasoned smashed avocado and chili
+                        flakes.</p>
+                    <a href="#" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+            <!-- Card 3 (Mock) -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <img src="./assets/images/image-omelette.jpeg" style="filter: hue-rotate(90deg);"
+                        alt="Berry Smoothie">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>5 mins</span>
+                        <span>•</span>
+                        <span>Drink</span>
+                    </div>
+                    <h2 class="recipe-title">Mixed Berry Smoothie</h2>
+                    <p class="recipe-desc">A refreshing blend of strawberries, blueberries, and yogurt for a healthy
+                        boost.</p>
+                    <a href="#" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+            <!-- Card 4 (Mock) -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <img src="./assets/images/image-omelette.jpeg" style="filter: hue-rotate(180deg);" alt="Pancakes">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>25 mins</span>
+                        <span>•</span>
+                        <span>Breakfast</span>
+                    </div>
+                    <h2 class="recipe-title">Fluffy Vanilla Pancakes</h2>
+                    <p class="recipe-desc">Light, airy pancakes served with maple syrup and fresh fruits.</p>
+                    <a href="#" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+            <!-- Card 5 (Mock) -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <img src="./assets/images/image-omelette.jpeg" style="filter: sepia(0.5);" alt="Granola Bowl">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>5 mins</span>
+                        <span>•</span>
+                        <span>Breakfast</span>
+                    </div>
+                    <h2 class="recipe-title">Crunchy Granola Bowl</h2>
+                    <p class="recipe-desc">Homemade granola with almond milk and sliced bananas.</p>
+                    <a href="#" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+            <!-- Card 6 (Mock) -->
+            <article class="recipe-card">
+                <div class="recipe-thumb">
+                    <img src="./assets/images/image-omelette.jpeg" style="filter: grayscale(0.5);" alt="Grilled Cheese">
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <span>15 mins</span>
+                        <span>•</span>
+                        <span>Lunch</span>
+                    </div>
+                    <h2 class="recipe-title">Ultimate Grilled Cheese</h2>
+                    <p class="recipe-desc">Melted cheddar and mozzarella between two slices of crispy buttered bread.
+                    </p>
+                    <a href="#" class="btn btn-sm btn-primary recipe-btn">View Recipe</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="container newsletter-content">
+            <h2>Never miss a recipe!</h2>
+            <p>Subscribe to our newsletter for weekly updates.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">OmNom<span class="dot">.</span></a>
+                <p>Cooking made simple.</p>
+            </div>
+            <div class="footer-links">
+                <a href="recipes.html">Recipes</a>
+                <a href="about.html">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="attribution">
+                Coded by <a href="https://github.com/Shashank23codes">Shashank</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

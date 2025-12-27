@@ -1,118 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Frontend Mentor | Recipe page</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A delicious simple omelette recipe. perfect for any meal. Quick, easy, and nutritious.">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  </head>
-  <body>
-    <main>
-      <img src="./assets/images/image-omelette.jpeg" alt="omelette" />
-      <h1>Simple Omelette Recipe</h1>
-      <p class="description">
-        An easy and quick dish, perfect for any meal. This classic omelette
-        combines beaten eggs cooked to perfection, optionally filled with your
-        choice of cheese, vegetables, or meats.
-      </p>
-      <div class="Preparation">
-        <h2>Preparation time</h2>
-        <ul>
-          <li><strong>Total:</strong> Approximately 10 minutes</li>
-          <li><strong>Preparation:</strong> 5 minutes</li>
-          <li><strong>Cooking:</strong> 5 minutes</li>
-        </ul>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="style.css" />
+
+  <title>OmNom | Simple Omelette Recipe</title>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">OmNom<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#newsletter" class="btn-sm">Subscribe</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="Ingredients">
-        <h2>Ingredients</h2>
-        <ul>
-          <li>2-3 large eggs</li>
-          <li>Salt, to taste</li>
-          <li>Paper, to tastel</li>
-          <li>1 tablespoon of butter or oil</li>
-          <li>
-            Optional fillings: cheese, diced vegetables, cooked meats, herbs
-          </li>
-        </ul>
-      </div>
-      <hr />
-      <div class="Instructions">
-        <h2>Instructions</h2>
-        <ol>
-          <li>
-            <strong>Beat the eggs:</strong> In a bowl, beat the eggs with a
-            pinch of salt and pepper until they are well mixed. You can add a
-            tablespoon of water or milk for a fluffier texture.
-          </li>
-          <li>
-            <strong>Heat the pan:</strong> Place a non-stick frying pan over
-            medium heat and add butter or oil.
-          </li>
-          <li>
-            <strong>Cook the omelette:</strong> Once the butter is melted and
-            bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly
-            coat the surface.
-          </li>
-          <li>
-            <strong>Add fillings (optional):</strong> When the eggs begin to set
-            at the edges but are still slightly runny in the middle, sprinkle
-            your chosen fillings over one half of the omelette.
-          </li>
-          <li>
-            <strong>Fold and serve:</strong> As the omelette continues to cook,
-            carefully lift one edge and fold it over the fillings. Let it cook
-            for another minute, then slide it onto a plate.
-          </li>
-          <li>
-            <strong>Enjoy:</strong> Serve hot, with additional salt and pepper
-            if needed.
-          </li>
-        </ol>
-      </div>
-      <hr />
-      <div class="Nutrition">
-        <h2>Nutrition</h2>
-        <p>
-          The table below shows nutritional values per serving without the
-          additional fillings.
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge">Featured Recipe</span>
+        <h1>Simple Omelette Recipe</h1>
+        <p class="hero-description">
+          An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked to perfection,
+          optionally filled with your choice of cheese, vegetables, or meats.
         </p>
-        <table>
-          <tr>
-            <td>Calories</td>
-            <td><b>277kcal</b></td>
-          </tr>
-          <tr>
-            <td>Carbs</td>
-            <td><b>0g</b></td>
-          </tr>
-          <tr>
-            <td>Protein</td>
-            <td><b>20g</b></td>
-          </tr>
-          <tr>
-            <td>Fat</td>
-            <td><b>22g</b></td>
-          </tr>
-        </table>
+        <div class="hero-actions">
+          <a href="#instructions" class="btn btn-primary">Start Cooking</a>
+          <a href="#nutrition" class="btn btn-secondary">View Nutrition</a>
+        </div>
       </div>
+      <div class="hero-image-wrapper">
+        <img src="./assets/images/image-omelette.jpeg" alt="A delicious simple omelette served on a plate"
+          class="hero-img" />
+        <div class="floating-card">
+          <span class="emoji">🍳</span>
+          <div class="floating-text">
+            <strong>Easy & Quick</strong>
+            <span>Perfect styling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <span class="stat-label">Preparation</span>
+        <strong class="stat-value">5 min</strong>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-label">Cooking</span>
+        <strong class="stat-value">5 min</strong>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-label">Calories</span>
+        <strong class="stat-value">277 kcal</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container content-layout">
+
+    <!-- Sidebar: Ingredients -->
+    <aside class="sidebar">
+      <div class="sticky-wrapper">
+        <div class="ingredients-card">
+          <h2>Ingredients</h2>
+          <p class="subtitle">Check items as you have them!</p>
+          <ul class="ingredient-list">
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                2-3 large eggs
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Salt, to taste
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Pepper, to taste
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                1 tbsp butter or oil
+              </label>
+            </li>
+            <li class="separator">Optional Fillings:</li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Cheese
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Diced Vegetables
+              </label>
+            </li>
+            <li>
+              <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Cooked Meats
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Instructions -->
+    <main id="instructions" class="main-content">
+      <div class="section-header">
+        <h2>Instructions</h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Beat the eggs</h3>
+            <p>In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a
+              tablespoon of water or milk for a fluffier texture.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Heat the pan</h3>
+            <p>Place a non-stick frying pan over medium heat and add butter or oil.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Cook the omelette</h3>
+            <p>Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the
+              surface.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Add fillings (optional)</h3>
+            <p>When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen
+              fillings over one half of the omelette.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Fold and serve</h3>
+            <p>As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for
+              another minute, then slide it onto a plate.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Enjoy</h3>
+            <p>Serve hot, with additional salt and pepper if needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="nutrition" class="nutrition-section">
+        <h2>Nutrition Information</h2>
+        <p>Values per serving without additional fillings</p>
+
+        <div class="nutrition-grid">
+          <div class="nutrition-card">
+            <span class="nutri-label">Calories</span>
+            <span class="nutri-value">277</span>
+            <span class="nutri-unit">kcal</span>
+          </div>
+          <div class="nutrition-card">
+            <span class="nutri-label">Carbs</span>
+            <span class="nutri-value">0</span>
+            <span class="nutri-unit">g</span>
+          </div>
+          <div class="nutrition-card">
+            <span class="nutri-label">Protein</span>
+            <span class="nutri-value">20</span>
+            <span class="nutri-unit">g</span>
+          </div>
+          <div class="nutrition-card">
+            <span class="nutri-label">Fat</span>
+            <span class="nutri-value">22</span>
+            <span class="nutri-unit">g</span>
+          </div>
+        </div>
+      </div>
+
     </main>
-    <footer>
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Shashank</a>.
+  </div>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container newsletter-content">
+      <h2>Delicious recipes delivered.</h2>
+      <p>Get the best cooking tips and simple recipes straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#" class="logo">OmNom<span class="dot">.</span></a>
+        <p>Cooking made simple.</p>
       </div>
-    </footer>
-  </body>
+      <div class="footer-links">
+        <a href="#">Recipes</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/Shashank23codes">Shashank</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
