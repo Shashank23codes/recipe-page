@@ -36,9 +36,6 @@ The challenge was to build a recipe page that matches the provided design as clo
 - **State Management:** Hover, active, and focus states for all interactive elements.
 - **Semantics:** Using proper HTML5 semantic tags for better accessibility and SEO.
 
-### Screenshot
-
-![Recipe Page Screenshot](./Screenshot.jpeg)
 
 ### Links
 
